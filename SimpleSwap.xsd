@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="urn://www.ampcapital.com.au/Derivatives/SimpleSwap"
+		   elementFormDefault="qualified"
+		   xmlns="urn://www.ampcapital.com.au/Derivatives/SimpleSwap"
+		   xmlns:tns="urn://www.ampcapital.com.au/Derivatives/SimpleSwap"
+		   xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:annotation>
+		<xs:documentation>
+			This schema defines the data for a Simple Swap.
+		</xs:documentation>
+	</xs:annotation>
+	<xs:complexType name="Contract">
+		<xs:annotation>
+			<xs:documentation>
+				This complex type defines the information required to model a Simple Swap Contract.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="security_id"
+						minOccurs="1"
+						maxOccurs="1"
+						type="xs:string" />
+
+			<xs:element name="security_type"
+						minOccurs="1"
+						maxOccurs="1"
+						type="xs:string"
+						fixed="SWAP">
+			</xs:element>
+			<xs:element name="security_sub_type"
+						minOccurs="1"
+						maxOccurs="1"
+						type="xs:string"
+						fixed="VANILLA_IRS">
+				<!-- -->
+			</xs:element>
+			<xs:element name="description"
+						minOccurs="1"
+						maxOccurs="1"
+						type="xs:string" >
+				<xs:annotation>
+					<xs:documentation>
+						example: PAY FIXED 1.25 RECEIVE AUDBBSW6M 06/01/2031
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="currrency"
+						minOccurs="1"
+						maxOccurs="1"
+						type="xs:string" />
+			<xs:element name="exchange"
+						minOccurs="1"
+						maxOccurs="1"
+						type="xs:string" />
+			<xs:element name="counterparty_ticker"
+						minOccurs="1"
+						maxOccurs="1"
+						type="xs:string" />
+			<xs:element name="counterparty_clearing_house"
+						minOccurs="1"
+						maxOccurs="1"
+						type="xs:string" />
+			<xs:element name="clearing_bank_short_code"
+						minOccurs="1"
+						maxOccurs="1"
+						type="xs:string" />
+			<xs:element name="Leg1"
+						minOccurs="1"
+						maxOccurs="1"
+						type="tns:ContractLeg" />
+			<xs:element name="Leg2"
+						minOccurs="1"
+						maxOccurs="1"
+						type="tns:ContractLeg" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ContractLeg">
+		<xs:annotation>
+			<xs:documentation>
+				This complex type defines the information required to model a leg of Simple Swap.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="swap_leg_id"
+						type="xs:string"
+						minOccurs="1"
+						maxOccurs="1"
+						nillable="false"></xs:element>
+			<!--
+		swap_leg_id_1
+		pay_receive_type
+		coupon_type
+		description
+		currency_code
+		exchange
+		accrual_date
+		maturity_date
+		business_day_convention
+		payment_frequency
+		coupon_rate
+		day_count
+		compounding_method
+		initial_principal_exchange
+		final_principal_exchange
+-->
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
