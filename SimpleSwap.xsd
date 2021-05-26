@@ -64,20 +64,20 @@
 						minOccurs="1"
 						maxOccurs="1"
 						type="xs:string" />
-			<xs:element name="Leg1"
+			<xs:element name="FixedLeg"
 						minOccurs="1"
 						maxOccurs="1"
-						type="tns:ContractLeg" />
-			<xs:element name="Leg2"
+						type="tns:ContractFixedLeg" />
+			<xs:element name="FloatingLeg"
 						minOccurs="1"
 						maxOccurs="1"
-						type="tns:ContractLeg" />
+						type="tns:ContractFloatingLeg" />
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="ContractLeg">
+	<xs:complexType name="ContractFixedLeg">
 		<xs:annotation>
 			<xs:documentation>
-				This complex type defines the information required to model a leg of Simple Swap.
+				This complex type defines the information required to model a fixed leg of a Simple Swap.
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
@@ -104,5 +104,12 @@
 		final_principal_exchange
 -->
 		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ContractFloatingLeg">
+		<xs:annotation>
+			<xs:documentation>
+				This complex type defines the information required to model a fixed leg of a Simple Swap.
+			</xs:documentation>
+		</xs:annotation>
 	</xs:complexType>
 </xs:schema>
